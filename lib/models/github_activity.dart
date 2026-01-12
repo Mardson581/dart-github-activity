@@ -1,8 +1,15 @@
+import 'package:dart_github_activity/models/github_actor.dart';
+import 'package:dart_github_activity/models/github_payload.dart';
+import 'package:dart_github_activity/models/github_repository.dart';
+
 class GithubActivity {
   final int id;
   final String type;
   final bool public;
   final DateTime? createdAt;
+  GithubActor? actor;
+  GithubRepository? repo;
+  GithubPayload? payload;
 
   GithubActivity({
     required this.id,
