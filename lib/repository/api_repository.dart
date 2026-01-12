@@ -6,12 +6,10 @@ import 'package:http/http.dart' as http;
 import 'dart:convert';
 
 class ApiRepository {
-  final String urlBase = "https://api.github.com/users/<username>/events?page=<page>";
-
+  
   Future<List<Map<String, dynamic>>>
-    getJsonActivityByUsername(String user, [int page=1]) async {
-      final uriWithUsername = Uri.parse(
-          urlBase.replaceFirst('<username>', user).replaceFirst('<page>', page.toString()));
+    _getJsonActivityByUsername(String user, [int page=1]) async {
+      final uriWithUsername = Uri.https("api.github.com", "/users/$user/events", {"page": page.toString()});
 
       final httpResponse = await http.get(uriWithUsername);
       if (httpResponse.statusCode != 200) {
@@ -54,9 +52,9 @@ class ApiRepository {
     return activity;
   }
 
-  Future<List<GithubActivity?>> 
+  Future<List<GithubActivity>> 
     getUserActivitiesByPage(String user, [int page=1]) async {
-      var jsonList = await getJsonActivityByUsername(user, page);
+      var jsonList = await _getJsonActivityByUsername(user, page);
       List<GithubActivity> list = [];
 
       for (Map<String, dynamic> activityData in jsonList) {
