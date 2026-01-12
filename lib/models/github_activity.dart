@@ -16,11 +16,11 @@ class GithubActivity {
       id: json['id'],
       type: json['type'],
       public: json['public'],
-      createdAt: getDateFromString(json['created_at'])
+      createdAt: _getDateFromString(json['created_at'])
     );
   }
 
-  static DateTime? getDateFromString(String date) {
+  static DateTime? _getDateFromString(String date) {
     List<String> dateString = date.substring(0, date.indexOf('T')).split('-');
 
     try {
