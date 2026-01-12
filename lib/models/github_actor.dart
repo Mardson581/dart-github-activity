@@ -11,7 +11,7 @@ class GithubActor {
 
   factory GithubActor.fromJson(Map<String, dynamic> json) {
     return GithubActor(
-      id: json['id'],
+      id: json['id'] as int,
       login: json['login'],
       displayLogin: json['display_login']
     );

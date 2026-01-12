@@ -20,9 +20,9 @@ class GithubActivity {
 
   factory GithubActivity.fromJson(Map<String, dynamic> json) {
     return GithubActivity(
-      id: json['id'],
+      id: int.parse(json['id']),
       type: json['type'],
-      public: json['public'],
+      public: json['public'] as bool,
       createdAt: _getDateFromString(json['created_at'])
     );
   }

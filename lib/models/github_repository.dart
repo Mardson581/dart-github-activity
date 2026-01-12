@@ -1,6 +1,6 @@
 class GithubRepository {
   final int id;
-  final String name;
+  final String? name;
   final String url;
 
   GithubRepository({

@@ -7,7 +7,7 @@ import 'dart:convert';
 
 class ApiRepository {
   
-  Future<List<Map<String, dynamic>>>
+  Future<List<dynamic>>
     _getJsonActivityByUsername(String user, [int page=1]) async {
       final uriWithUsername = Uri.https("api.github.com", "/users/$user/events", {"page": page.toString()});
 
@@ -16,7 +16,7 @@ class ApiRepository {
         throw Exception("Couldn't fetch data for user $user - status ${httpResponse.statusCode}");
       }
 
-      return json.decode(httpResponse.body) as List<Map<String, dynamic>>;
+      return json.decode(httpResponse.body) as List<dynamic>;
   }
 
   GithubActor? getActorFromJson(Map<String, dynamic> json) {

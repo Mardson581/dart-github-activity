@@ -1,16 +1,18 @@
 class GithubPayload {
-  final int repositoryId;
-  final int pushId;
-  final String ref;
-  final String head;
-  final String before;
+  final String? repositoryId;
+  final String? pushId;
+  final String? ref;
+  final String? head;
+  final String? before;
+  final String? action;
 
   GithubPayload({
     required this.repositoryId,
-    required this.pushId, 
-    required this.ref,
-    required this.head,
-    required this.before
+    this.pushId,
+    this.ref,
+    this.head,
+    this.before,
+    this.action
   });
 
   factory GithubPayload.fromJson(Map<String, dynamic> json) {
@@ -19,7 +21,8 @@ class GithubPayload {
       pushId: json['push_id'],
       ref: json['ref'],
       head: json['head'],
-      before: json['before']
+      before: json['before'],
+      action: json['action']
     );
   }
 }
