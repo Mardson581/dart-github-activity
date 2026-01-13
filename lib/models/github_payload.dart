@@ -1,6 +1,6 @@
 class GithubPayload {
-  final String? repositoryId;
-  final String? pushId;
+  final int? repositoryId;
+  final int? pushId;
   final String? ref;
   final String? head;
   final String? before;

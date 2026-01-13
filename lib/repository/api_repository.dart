@@ -32,15 +32,15 @@ class ApiRepository {
       return null;
     }
 
-    return GithubRepository.fromJson(json['actor']);
+    return GithubRepository.fromJson(json['repo']);
   }
 
   GithubPayload? getPayloadFromJson(Map<String, dynamic> json) {
-    if (json['actor'] == null) {
+    if (json['payload'] == null) {
       return null;
     }
 
-    return GithubPayload.fromJson(json['actor']);
+    return GithubPayload.fromJson(json['payload']);
   }
 
   GithubActivity getActivityFromJson(Map<String, dynamic> json) {
